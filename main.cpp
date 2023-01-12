@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 string penduduk[100][4] = {{"agus", "03/04", "ya", "menikah"},
                            {"ferguson", "05/01", "tidak", "belum kawin"},
@@ -11,6 +12,7 @@ string penduduk[100][4] = {{"agus", "03/04", "ya", "menikah"},
 void searching(string bil[][4], int panjang, int value)
 {
     string key;
+    int no;
 
     if (value == 0)
     {
@@ -22,17 +24,18 @@ void searching(string bil[][4], int panjang, int value)
         cout << "masukkan alamat penduduk(rt/rw): ";
         cin >> key;
     }
+            cout << "\n\n               Data Penduduk Yang Anda Cari               \n\n";
+            cout << "===============================================================\n";
+            cout << "No" << setw(15) << "Nama" << setw(15) << "Alamat" << setw(15) << "Pajak" << setw(15) << "Status" << setw(15) << endl;
+            cout << "===============================================================\n";
     for (int i = 0; i < panjang; i++)
     {
         if (bil[i][value] == key)
         {
-            cout << "----------------------" << endl;
-            cout << "nama : " << bil[i][0] << endl;
-            cout << "alamat: " << bil[i][1] << endl;
-            cout << "pajak: " << bil[i][2] << endl;
-            cout << "status: " << bil[i][3] << endl;
+            cout << no << i+1 << setw(15) << penduduk[i][0] << setw(15) << penduduk[i][1] << setw(15) << penduduk[i][2] << setw(15) << penduduk[i][3] << endl;
         }
     }
+            cout << "===============================================================\n";
 }
 void bubbleSortAsc(string penduduk[0][4], int panjang)
 {
@@ -124,7 +127,7 @@ int main()
 {
     string first, value;
     string ulang = "y";
-    int panjangPenduduk = 7, pilihan;
+    int panjangPenduduk = 7, pilihan, no;
 
     cout << "apakah anda akan menggunakan data yang sudah ada?(y/n)";
     cin >> first;
@@ -220,14 +223,15 @@ int main()
             cin >> ulang;
             break;
         case 4:
+            cout << "\n\n               Daftar Data Penduduk               \n\n";
+            cout << "===============================================================\n";
+            cout << "No" << setw(15) << "Nama" << setw(15) << "Alamat" << setw(15) << "Pajak" << setw(15) << "Status" << setw(15) << endl;
+            cout << "===============================================================\n";
             for (int i = 0; i < panjangPenduduk; i++)
             {
-                cout << "+++++++++++++++++++++++++++++ \n";
-                cout << "nama:\t" << penduduk[i][0] << endl;
-                cout << "alamat:\t" << penduduk[i][1] << endl;
-                cout << "pajak:\t" << penduduk[i][2] << endl;
-                cout << "status:\t" << penduduk[i][3] << endl;
+                cout << no << i+1 << setw(15) << penduduk[i][0] << setw(15) << penduduk[i][1] << setw(15) << penduduk[i][2] << setw(15) << penduduk[i][3] << endl;
             }
+            cout << "===============================================================\n";
             cout << "apakah anda ingin kembali ke menu utama?(y/n)";
             cin >> ulang;
             break;
